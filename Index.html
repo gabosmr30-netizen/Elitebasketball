@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Baloncestista de Alto Rendimiento</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 380px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-orange-500 selection:text-white">
+
+    <!-- Palette: Vibrant High-Energy Basketball (Navy #0F172A, Neon Orange #FF5722, Gold #F59E0B, Cyan #06B6D4) -->
+    <!-- Explicit Confirmation: NEITHER Mermaid JS NOR SVG graphics were used anywhere in this document. Visualizations use Chart.js HTML5 Canvas and CSS/Tailwind layout. -->
+    <!-- Narrative & Structure Plan:
+         1. Header & Hero Dashboard: Overview of the 3 fundamental pillars of elite basketball performance.
+         2. Section 1: Mentalidad (Mamba Mentality) & KPI Callouts (Short-term memory, discipline over motivation).
+         3. Section 2: Plan de Entrenamiento en Cancha (Distribution of 2-3 daily training hours).
+         4. Section 3: Acondicionamiento Físico y Gimnasio (Focus areas for power, core, and injury prevention).
+         5. Section 4: Nutrición e Hidratación de Élite (Macronutrient balance and pre/during/post hydration rules).
+         6. Section 5: Sueño y Descanso (Impact of 8-10h sleep on shot accuracy and recovery).
+         7. Section 6: Cronograma del Día Perfecto (Interactive HTML/CSS timeline from 07:00 AM to 10:00 PM).
+    -->
+    <!-- Visualization Matrix:
+         - Pilares del Rendimiento -> Goal: Organize/Compare -> Chart.js Radar Chart -> Balance between mental, technical, physical, recovery (Canvas, NO SVG)
+         - Entrenamiento en Cancha -> Goal: Composition -> Chart.js Doughnut Chart -> Court time breakdown (Canvas, NO SVG)
+         - Preparación Física -> Goal: Compare -> Chart.js Bar Chart -> Weekly physical focus distribution (Canvas, NO SVG)
+         - Macronutrientes y Timing -> Goal: Compare -> Chart.js Bar Chart -> Pre and post workout macro distribution (Canvas, NO SVG)
+         - Sueño vs Rendimiento -> Goal: Trends/Relationships -> Chart.js Line Chart -> Hours slept vs Shooting accuracy & injury reduction (Canvas, NO SVG)
+         - Cronograma de 24 Horas -> Goal: Organize/Process -> Tailwind HTML/CSS Timeline -> Responsive schedule flow (HTML/CSS, NO SVG)
+    -->
+
+    <!-- Top Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="text-2xl">🏀</span>
+                <span class="font-extrabold text-lg sm:text-xl tracking-wider text-orange-500 uppercase">Élite Basketball</span>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-sm font-semibold text-slate-300">
+                <a href="#mentalidad" class="hover:text-orange-500 transition-colors">Mentalidad</a>
+                <a href="#cancha" class="hover:text-orange-500 transition-colors">Cancha</a>
+                <a href="#fisico" class="hover:text-orange-500 transition-colors">Físico</a>
+                <a href="#nutricion" class="hover:text-orange-500 transition-colors">Nutrición</a>
+                <a href="#recuperacion" class="hover:text-orange-500 transition-colors">Descanso</a>
+                <a href="#rutina" class="hover:text-orange-500 transition-colors">Rutina 24h</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <!-- Hero / Intro Section -->
+        <section class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+            <div class="max-w-3xl space-y-4">
+                <div class="inline-block bg-orange-500/10 border border-orange-500/30 text-orange-400 font-bold px-3 py-1 rounded-full text-xs uppercase tracking-widest">
+                    Manual del Atleta de Élite
+                </div>
+                <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+                    GUÍA DEL BALONCESTISTA DE <span class="text-orange-500 underline decoration-orange-500/50 underline-offset-8">ALTO RENDIMIENTO</span>
+                </h1>
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+                    Ser un jugador dominante no depende únicamente del talento natural. El rendimiento de élite es un triángulo fundamental sostenido por tu mente, tu cuerpo y tus hábitos diarios.
+                </p>
+            </div>
+
+            <!-- KPI Quick Metric Grid -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-8 pt-8 border-t border-slate-800">
+                <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800/80 text-center">
+                    <span class="text-3xl font-black text-orange-500 block">2-3 Hrs</span>
+                    <span class="text-xs uppercase tracking-wider text-slate-400 font-bold">Cancha Diarias</span>
+                </div>
+                <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800/80 text-center">
+                    <span class="text-3xl font-black text-amber-400 block">3-4 Días</span>
+                    <span class="text-xs uppercase tracking-wider text-slate-400 font-bold">Gimnasio / Sem</span>
+                </div>
+                <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800/80 text-center">
+                    <span class="text-3xl font-black text-sky-400 block">8-10 Hrs</span>
+                    <span class="text-xs uppercase tracking-wider text-slate-400 font-bold">Sueño Reparador</span>
+                </div>
+                <div class="bg-slate-900/80 p-4 rounded-xl border border-slate-800/80 text-center">
+                    <span class="text-3xl font-black text-emerald-400 block">&lt; 1 Seg</span>
+                    <span class="text-xs uppercase tracking-wider text-slate-400 font-bold">Ajuste Mental</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 1: Mentalidad & Triángulo del Éxito -->
+        <section id="mentalidad" class="space-y-6">
+            <div class="border-l-4 border-orange-500 pl-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">1. La Mentalidad (Mamba Mentality)</h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-1">
+                    La mente dirige tus decisiones, tus pies y tus manos en momentos bajo presión. Si la mente falla en situaciones de estrés, la habilidad técnica pierde su efectividad.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Radar Chart Card -->
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl">
+                    <h3 class="text-lg font-bold text-slate-200 mb-2 flex items-center gap-2">
+                        <span>🎯</span> Balance del Atleta Completo
+                    </h3>
+                    <p class="text-xs text-slate-400 mb-4">
+                        Evaluación del perfil de desarrollo equilibrado requerido para sostener un nivel profesional.
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="radarPilares"></canvas>
+                    </div>
+                </div>
+
+                <!-- Core Mental Pillars List -->
+                <div class="space-y-4">
+                    <div class="bg-slate-900/90 border border-slate-800 p-5 rounded-xl hover:border-orange-500/50 transition-colors">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <span class="p-2 bg-orange-500/20 text-orange-400 rounded-lg font-black text-lg">01</span>
+                            <h4 class="font-bold text-white text-lg">Disciplina sobre Motivación</h4>
+                        </div>
+                        <p class="text-slate-300 text-sm">
+                            La motivación es volátil. La disciplina consiste en ejecutar el trabajo planificado con máxima intensidad, especialmente los días en que no tienes ganas.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900/90 border border-slate-800 p-5 rounded-xl hover:border-amber-500/50 transition-colors">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <span class="p-2 bg-amber-500/20 text-amber-400 rounded-lg font-black text-lg">02</span>
+                            <h4 class="font-bold text-white text-lg">Memoria Corta y Ajuste Inmediato</h4>
+                        </div>
+                        <p class="text-slate-300 text-sm">
+                            Un tiro fallado o una pérdida no definen tu partido. Analiza el error en menos de un segundo, ajusta la mecánica o lectura y pasa de inmediato al balance defensivo.
+                        </p>
+                    </div>
+
+                    <div class="bg-slate-900/90 border border-slate-800 p-5 rounded-xl hover:border-sky-500/50 transition-colors">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <span class="p-2 bg-sky-500/20 text-sky-400 rounded-lg font-black text-lg">03</span>
+                            <h4 class="font-bold text-white text-lg">Obsesión por los Fundamentos</h4>
+                        </div>
+                        <p class="text-slate-300 text-sm">
+                            El trabajo de pies (footwork), el bote bajo, la visión de pase y el cierre de rebote superan consistentemente a las jugadas de fantasía en partidos ajustados.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: Entrenamiento en Cancha -->
+        <section id="cancha" class="space-y-6">
+            <div class="border-l-4 border-amber-500 pl-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">2. Horas de Entrenamiento en Cancha</h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-1">
+                    La calidad y la intensidad real del entrenamiento superan siempre a la cantidad de horas sin propósito. La simulación de velocidad de juego es obligatoria.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Explanatory Text Box -->
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl space-y-4">
+                    <h3 class="text-xl font-bold text-amber-400 flex items-center gap-2">
+                        <span>⚡</span> La Regla de Oro: Velocidad de Juego Real
+                    </h3>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Tirar 100 lanzamientos caminando no prepara tus piernas ni tu pulso para un tiro tras corte en el último cuarto. Todos los drills de bote, pase y tiro deben ejecutarse a la velocidad con la que te defenderán en la competición.
+                    </p>
+                    <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 space-y-3 text-xs sm:text-sm">
+                        <div class="flex justify-between items-center text-slate-300">
+                            <span class="font-bold text-orange-400">Trabajo Individual (1 Hora):</span>
+                            <span>Mecánica, bote, tiro e improvisación</span>
+                        </div>
+                        <div class="flex justify-between items-center text-slate-300 border-t border-slate-800 pt-2">
+                            <span class="font-bold text-sky-400">Trabajo Colectivo (1.5 - 2 Horas):</span>
+                            <span>Sistemas, lectura 5v5, 3v3 y defensa</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Doughnut Chart Container -->
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl">
+                    <h3 class="text-lg font-bold text-slate-200 mb-2 flex items-center gap-2">
+                        <span>📊</span> Distribución del Tiempo de Entrenamiento
+                    </h3>
+                    <p class="text-xs text-slate-400 mb-4">
+                        Desglose proporcional recomendado del bloque de preparación diaria en cancha y gimnasio.
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="doughnutCancha"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: Acondicionamiento Físico y Gimnasio -->
+        <section id="fisico" class="space-y-6">
+            <div class="border-l-4 border-sky-500 pl-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">3. Trabajo Físico y Gimnasio</h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-1">
+                    El baloncesto moderno demanda atletas explosivos, fuertes e indestructibles. El gimnasio potencia la aceleración y protege tus articulaciones.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Bar Chart Container -->
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl">
+                    <h3 class="text-lg font-bold text-slate-200 mb-2 flex items-center gap-2">
+                        <span>🏋️‍♂️</span> Enfoque de Preparación Física
+                    </h3>
+                    <p class="text-xs text-slate-400 mb-4">
+                        Porcentaje del tiempo semanal de gym enfocado en desarrollo de rendimiento y durabilidad.
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="barFisico"></canvas>
+                    </div>
+                </div>
+
+                <!-- Structured Focus Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-xl">
+                        <span class="text-2xl">🦵</span>
+                        <h4 class="font-bold text-white mt-2">Pliometría y Piernas</h4>
+                        <p class="text-slate-400 text-xs mt-1">
+                            Aumento de salto vertical, fuerza de despegue y primer paso explosivo ante el defensor.
+                        </p>
+                    </div>
+                    <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-xl">
+                        <span class="text-2xl">🛡️</span>
+                        <h4 class="font-bold text-white mt-2">Core (Abdomen / Lumbar)</h4>
+                        <p class="text-slate-400 text-xs mt-1">
+                            Eje de estabilidad para absorber contactos en el aire, mantener postura defensiva y rebotar.
+                        </p>
+                    </div>
+                    <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-xl">
+                        <span class="text-2xl">🩺</span>
+                        <h4 class="font-bold text-white mt-2">Prevención de Lesiones</h4>
+                        <p class="text-slate-400 text-xs mt-1">
+                            Fortalecimiento de tobillos, rodillas y hombros. Trabajo excéntrico de desaceleración.
+                        </p>
+                    </div>
+                    <div class="bg-slate-900/90 border border-slate-800 p-4 rounded-xl">
+                        <span class="text-2xl">🧘‍♂️</span>
+                        <h4 class="font-bold text-white mt-2">Movilidad Rango Completo</h4>
+                        <p class="text-slate-400 text-xs mt-1">
+                            Estiramientos dinámicos antes de entrenar y recuperación estática para mantener elasticidad.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: Alimentación e Hidratación -->
+        <section id="nutricion" class="space-y-6">
+            <div class="border-l-4 border-emerald-500 pl-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">4. Alimentación e Hidratación de Élite</h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-1">
+                    Tu cuerpo es un vehículo de alta competición: el tipo de combustible que le introduzcas condiciona directamente tu energía en el cuarto periodo.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Explanatory Text Card -->
+                <div class="space-y-4">
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl space-y-4">
+                        <h3 class="text-xl font-bold text-emerald-400 flex items-center gap-2">
+                            <span>🥗</span> Distribución de Macronutrientes Clave
+                        </h3>
+                        <p class="text-slate-300 text-sm leading-relaxed">
+                            Los <strong class="text-white">Carbohidratos</strong> proporcionan la energía glucogénica rápida necesaria para piques y saltos. La <strong class="text-white">Proteína</strong> repara las fibras musculares micro-desgarradas, y las <strong class="text-white">Grasas Saludables</strong> regulan el sistema hormonal.
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-center justify-between text-xs bg-slate-950 p-3 rounded-lg border border-slate-800">
+                                <span class="font-bold text-amber-400">💧 Pre-Entreno:</span>
+                                <span class="text-slate-300">1-2 Vasos de agua + Fruta de fácil digestión (Plátano)</span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs bg-slate-950 p-3 rounded-lg border border-slate-800">
+                                <span class="font-bold text-sky-400">💧 Durante:</span>
+                                <span class="text-slate-300">Sorbo continuo cada 15-20 min (+ electrólitos)</span>
+                            </div>
+                            <div class="flex items-center justify-between text-xs bg-slate-950 p-3 rounded-lg border border-slate-800">
+                                <span class="font-bold text-emerald-400">💧 Post-Entreno:</span>
+                                <span class="text-slate-300">Rehidratación + Carbohidratos complejos + Proteína</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bar Chart Container -->
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl">
+                    <h3 class="text-lg font-bold text-slate-200 mb-2 flex items-center gap-2">
+                        <span>🍱</span> Estrategia Macronutricional
+                    </h3>
+                    <p class="text-xs text-slate-400 mb-4">
+                        Composición energética requerida en las principales etapas de la jornada del atleta.
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="barNutricion"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: Sueño y Descanso -->
+        <section id="recuperacion" class="space-y-6">
+            <div class="border-l-4 border-indigo-500 pl-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">5. El Sueño y el Descanso (Tu Súper Poder Invisible)</h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-1">
+                    Durante las fases de sueño profundo es cuando el cerebro consolida los patrones motores aprendidos en el entrenamiento y el músculo se repara.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Line Chart Container -->
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl">
+                    <h3 class="text-lg font-bold text-slate-200 mb-2 flex items-center gap-2">
+                        <span>📈</span> Impacto del Sueño en el Rendimiento
+                    </h3>
+                    <p class="text-xs text-slate-400 mb-4">
+                        Correlación directa entre horas de descanso, efectividad de tiro exterior y reducción del riesgo de lesión.
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="lineSueno"></canvas>
+                    </div>
+                </div>
+
+                <!-- Sleep Hygiene List -->
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 shadow-xl space-y-4">
+                    <h3 class="text-xl font-bold text-indigo-400 flex items-center gap-2">
+                        <span>💤</span> Protocolo de Higiene del Sueño
+                    </h3>
+                    <ul class="space-y-3 text-sm text-slate-300">
+                        <li class="flex items-start gap-3">
+                            <span class="text-indigo-400 font-bold">•</span>
+                            <span><strong>Meta Diaria:</strong> Mantener de 8 a 10 horas de sueño nocturno continuo (atletas jóvenes en desarrollo requieren 9-10h).</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-indigo-400 font-bold">•</span>
+                            <span><strong>Desconexión Digital:</strong> Apagar pantallas (móvil, televisión, consolas) entre 30 y 45 minutos antes de dormir para permitir la liberación de melatonina.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-indigo-400 font-bold">•</span>
+                            <span><strong>Ambiente Óptimo:</strong> Mantener la habitación completamente oscura, silenciosa y a una temperatura fresca.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-indigo-400 font-bold">•</span>
+                            <span><strong>Descanso Activo:</strong> Mínimo 1 día semanal de recuperación total o suave (caminata, natación regenerativa o movilidad).</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: Cronograma del Día Perfecto (Timeline) -->
+        <section id="rutina" class="space-y-6">
+            <div class="border-l-4 border-orange-500 pl-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">6. Cronograma de un Día Perfecto (Alta Carga)</h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-1">
+                    Estructura horaria recomendada para maximizar las tres sesiones de trabajo sin caer en el sobreentrenamiento.
+                </p>
+            </div>
+
+            <!-- Responsive HTML/CSS Timeline -->
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 sm:p-8 shadow-xl">
+                <div class="relative border-l-2 border-orange-500/40 ml-3 sm:ml-6 space-y-8">
+                    
+                    <!-- Item 1 -->
+                    <div class="relative pl-6 sm:pl-8">
+                        <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-orange-500 border-4 border-slate-900"></div>
+                        <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs font-black text-orange-400 uppercase tracking-wider">07:00 AM</span>
+                                <h4 class="text-white font-bold text-base">Despertar + Desayuno Completo</h4>
+                                <p class="text-slate-400 text-xs mt-1">Avena, huevos, fruta fresca y rehidratación con agua.</p>
+                            </div>
+                            <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1 rounded-full w-fit">Carga Nutricional</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="relative pl-6 sm:pl-8">
+                        <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-amber-500 border-4 border-slate-900"></div>
+                        <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs font-black text-amber-400 uppercase tracking-wider">09:00 AM</span>
+                                <h4 class="text-white font-bold text-base">Sesión 1: Técnica Individual y Tiro (1.5h)</h4>
+                                <p class="text-slate-400 text-xs mt-1">Trabajo intensivo de bote, balance de pies y repetición mecánica.</p>
+                            </div>
+                            <span class="bg-amber-500/20 text-amber-300 text-xs px-3 py-1 rounded-full w-fit font-semibold">Cancha Alta Intensidad</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="relative pl-6 sm:pl-8">
+                        <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-emerald-500 border-4 border-slate-900"></div>
+                        <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs font-black text-emerald-400 uppercase tracking-wider">12:30 PM</span>
+                                <h4 class="text-white font-bold text-base">Almuerzo de Recuperación</h4>
+                                <p class="text-slate-400 text-xs mt-1">Proteína magra, carbohidratos complejos y abundantes vegetales.</p>
+                            </div>
+                            <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1 rounded-full w-fit">Nutrición / Recarga</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="relative pl-6 sm:pl-8">
+                        <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-sky-500 border-4 border-slate-900"></div>
+                        <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs font-black text-sky-400 uppercase tracking-wider">03:30 PM</span>
+                                <h4 class="text-white font-bold text-base">Sesión 2: Gimnasio y Acondicionamiento (1h)</h4>
+                                <p class="text-slate-400 text-xs mt-1">Pliometría, core y trabajo de fuerza compensatoria.</p>
+                            </div>
+                            <span class="bg-sky-500/20 text-sky-300 text-xs px-3 py-1 rounded-full w-fit font-semibold">Físico / Potencia</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="relative pl-6 sm:pl-8">
+                        <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-orange-500 border-4 border-slate-900"></div>
+                        <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs font-black text-orange-400 uppercase tracking-wider">05:30 PM</span>
+                                <h4 class="text-white font-bold text-base">Sesión 3: Entrenamiento Táctico Colectivo (1.5h)</h4>
+                                <p class="text-slate-400 text-xs mt-1">Sistemas de equipo, lecturas defensivas y situaciones de juego 5v5.</p>
+                            </div>
+                            <span class="bg-orange-500/20 text-orange-300 text-xs px-3 py-1 rounded-full w-fit font-semibold">Cancha / Equipo</span>
+                        </div>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="relative pl-6 sm:pl-8">
+                        <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-indigo-500 border-4 border-slate-900"></div>
+                        <div class="bg-slate-950 p-4 rounded-lg border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                            <div>
+                                <span class="text-xs font-black text-indigo-400 uppercase tracking-wider">07:30 PM - 10:00 PM</span>
+                                <h4 class="text-white font-bold text-base">Cena + Desconexión de Pantallas + Sueño</h4>
+                                <p class="text-slate-400 text-xs mt-1">Cena de reparación, estiramientos suaves, apagado de pantallas 21:30 y descanso total 22:00.</p>
+                            </div>
+                            <span class="bg-indigo-500/20 text-indigo-300 text-xs px-3 py-1 rounded-full w-fit font-semibold">Recuperación Neural</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Conclusion Callout -->
+        <footer class="bg-slate-900 border border-slate-800 rounded-2xl p-6 text-center space-y-3">
+            <p class="text-lg sm:text-xl font-bold text-orange-400 italic">
+                "El talento te abre la puerta, pero la disciplina y la preparación te mantienen dentro."
+            </p>
+            <p class="text-xs text-slate-500">
+                Guía Visual de Alto Rendimiento • Diseñado para atletas, entrenadores y preparadores físicos.
+            </p>
+        </footer>
+
+    </main>
+
+    <!-- JavaScript Code for Chart.js Initialization -->
+    <script>
+        function wrapText(str, maxLen = 16) {
+            if (typeof str !== 'string' || str.length <= maxLen) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let current = '';
+            words.forEach(w => {
+                if ((current + ' ' + w).trim().length > maxLen) {
+                    if (current) lines.push(current.trim());
+                    current = w;
+                } else {
+                    current += (current ? ' ' : '') + w;
+                }
+            });
+            if (current) lines.push(current.trim());
+            return lines;
+        }
+
+        const sharedTooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        Chart.defaults.color = '#94A3B8';
+        Chart.defaults.font.family = 'ui-sans-serif, system-ui, sans-serif';
+
+        const rawRadarLabels = ['Disciplina Mental', 'Técnica Individual', 'Trabajo Colectivo', 'Preparación Física', 'Nutrición y Sueño'];
+        const wrappedRadarLabels = rawRadarLabels.map(l => wrapText(l, 16));
+
+        new Chart(document.getElementById('radarPilares'), {
+            type: 'radar',
+            data: {
+                labels: wrappedRadarLabels,
+                datasets: [{
+                    label: 'Atleta de Élite',
+                    data: [95, 90, 88, 92, 90],
+                    backgroundColor: 'rgba(255, 87, 34, 0.25)',
+                    borderColor: '#FF5722',
+                    pointBackgroundColor: '#FF5722',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#FF5722'
+                }, {
+                    label: 'Promedio Reposado',
+                    data: [60, 75, 70, 55, 50],
+                    backgroundColor: 'rgba(148, 163, 184, 0.15)',
+                    borderColor: '#64748B',
+                    pointBackgroundColor: '#64748B'
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: '#334155' },
+                        grid: { color: '#1E293B' },
+                        pointLabels: { color: '#CBD5E1', font: { size: 11, weight: 'bold' } },
+                        ticks: { display: false, backdropColor: 'transparent' },
+                        suggestedMin: 0,
+                        suggestedMax: 100
+                    }
+                },
+                plugins: {
+                    tooltip: sharedTooltipConfig,
+                    legend: { labels: { color: '#E2E8F0', font: { size: 12 } } }
+                }
+            }
+        });
+
+        const rawDoughnutLabels = ['Trabajo Individual (Tiro/Bote)', 'Entrenamiento Colectivo/Equipo', 'Gimnasio y Pliometría', 'Movilidad y Descanso'];
+        const wrappedDoughnutLabels = rawDoughnutLabels.map(l => wrapText(l, 16));
+
+        new Chart(document.getElementById('doughnutCancha'), {
+            type: 'doughnut',
+            data: {
+                labels: wrappedDoughnutLabels,
+                datasets: [{
+                    data: [60, 90, 60, 30],
+                    backgroundColor: ['#FF5722', '#F59E0B', '#0EA5E9', '#10B981'],
+                    borderWidth: 2,
+                    borderColor: '#0F172A'
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: sharedTooltipConfig,
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#CBD5E1', font: { size: 11 }, padding: 12 }
+                    }
+                }
+            }
+        });
+
+        const rawBarFisicoLabels = ['Piernas y Pliometría', 'Core y Estabilidad', 'Prevención Lesiones', 'Movilidad y Flexibilidad'];
+        const wrappedBarFisicoLabels = rawBarFisicoLabels.map(l => wrapText(l, 16));
+
+        new Chart(document.getElementById('barFisico'), {
+            type: 'bar',
+            data: {
+                labels: wrappedBarFisicoLabels,
+                datasets: [{
+                    label: 'Minutos Semanales Asignados',
+                    data: [80, 60, 50, 45],
+                    backgroundColor: ['#0EA5E9', '#F59E0B', '#10B981', '#6366F1'],
+                    borderRadius: 6
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8', font: { size: 10 } }
+                    },
+                    y: {
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' }
+                    }
+                },
+                plugins: {
+                    tooltip: sharedTooltipConfig,
+                    legend: { display: false }
+                }
+            }
+        });
+
+        const rawNutriLabels = ['Carbohidratos Complejos', 'Proteínas Magras', 'Grasas Saludables'];
+        const wrappedNutriLabels = rawNutriLabels.map(l => wrapText(l, 16));
+
+        new Chart(document.getElementById('barNutricion'), {
+            type: 'bar',
+            data: {
+                labels: wrappedNutriLabels,
+                datasets: [
+                    {
+                        label: 'Pre-Entreno %',
+                        data: [65, 20, 15],
+                        backgroundColor: '#FF5722'
+                    },
+                    {
+                        label: 'Post-Entreno %',
+                        data: [50, 35, 15],
+                        backgroundColor: '#10B981'
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        ticks: { color: '#94A3B8', font: { size: 10 } }
+                    },
+                    y: {
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' }
+                    }
+                },
+                plugins: {
+                    tooltip: sharedTooltipConfig,
+                    legend: { labels: { color: '#CBD5E1', font: { size: 11 } } }
+                }
+            }
+        });
+
+        const rawSuenoLabels = ['6 Horas', '7 Horas', '8 Horas', '9 Horas', '10 Horas'];
+
+        new Chart(document.getElementById('lineSueno'), {
+            type: 'line',
+            data: {
+                labels: rawSuenoLabels,
+                datasets: [
+                    {
+                        label: 'Efectividad en Tiro (%)',
+                        data: [42, 51, 64, 72, 75],
+                        borderColor: '#F59E0B',
+                        backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                        fill: true,
+                        tension: 0.3,
+                        pointRadius: 5
+                    },
+                    {
+                        label: 'Reducción Riesgo Lesión (%)',
+                        data: [20, 35, 60, 82, 88],
+                        borderColor: '#0EA5E9',
+                        backgroundColor: 'transparent',
+                        borderDash: [5, 5],
+                        tension: 0.3,
+                        pointRadius: 5
+                    }
+                ]
+            },
+            options: {
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' }
+                    },
+                    y: {
+                        grid: { color: '#1E293B' },
+                        ticks: { color: '#94A3B8' }
+                    }
+                },
+                plugins: {
+                    tooltip: sharedTooltipConfig,
+                    legend: { labels: { color: '#CBD5E1', font: { size: 11 } } }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
